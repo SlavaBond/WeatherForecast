@@ -5,32 +5,39 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css"/>
     <title>Weather Forecast</title>
 </head>
 <body>
-    <header>
-        <form>
-            <input type="search"/>
-            <input type="submit" value="Search"/>
-        </form>
-    </header>
+    <div class="weatherApp">
+        <header>
+            <form>
+                <input class="form-search" type="search" placeholder="Enter a city..." />
+                <input class="form-button" type="submit" value="Search" />
+            </form>
+        </header>
 
-    <main>
-        <h1>Paris</h1>
-        <p>
-            Friday 16:28, broken clouds <br />
-            Humidity: 66%, Wind: 9.39km/h
-        </p>
-        <span>☀️</span>
-        <span>23</span>
-        <span>°C</span>
-    </main>
-    
+        <main>
+            <div class="current-city">
+                <h1>Paris</h1>
+                <p class="current-text">
+                    Friday 16:28, broken clouds <br />
+                    Humidity: <strong>66%</strong>, Wind: <strong>9.39km/h</strong>
+                </p>
+            </div>
+            <div class="current-temp">
+                <span class="temp-icon">☀️</span>
+                <span class="temp-value">23</span>
+                <span class="temp-metrics">°C</span>
+            </div>
+        </main>
 
-    <footer>
-        This is coded by <a href="https://github.com/SlavaBond" target="_blank">Slava Bond</a>
-        is open-sourced on <a href="https://github.com/SlavaBond/WeatherForecast" target="_blank">GitHub</a>
-        and hosted on <a href="https://weatherforecastshecodes.netlify.app/" target="_blank">Netlify</a>
-    </footer>
+
+        <footer>
+            This project was coded by <a href="https://github.com/SlavaBond" target="_blank">Slava Bond</a>
+            is open-sourced on <a href="https://github.com/SlavaBond/WeatherForecast" target="_blank">GitHub</a>
+            and hosted on <a href="https://weatherforecastshecodes.netlify.app/" target="_blank">Netlify</a>
+        </footer>
+    </div>
 </body>
 </html> 
