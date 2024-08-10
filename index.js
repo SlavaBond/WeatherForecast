@@ -1,7 +1,7 @@
-// JavaScript source code
+// Update Main weather data from API
 function updateWeather(response) {
-    console.log(response.data);
-    console.log(response.data.condition.icon_url);
+   // console.log(response.data);
+   // console.log(response.data.condition.icon_url);
     let currentTemp = document.querySelector("#current-temp");
     let currentCity = document.querySelector("#city");
     let currentDescription = document.querySelector("#description");
@@ -21,6 +21,8 @@ function updateWeather(response) {
 }
 
 
+
+//////Get response from APIs
 function searchCityFunc(city) {
     //API
     let key = 'b1047taba00ddd6f7042cee7ac3b7do3';
@@ -28,12 +30,18 @@ function searchCityFunc(city) {
     axios.get(apiUrl).then(updateWeather);
 }
 
+function getForecast(city) {
+    let key = 'b1047taba00ddd6f7042cee7ac3b7do3';
+    let apiUrlF = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}`;
+    axios.get(apiUrlF).then(displayForecast);
+}
 
-
+///////////
 function changeCity(event) {
     event.preventDefault();
     let searchCity = document.querySelector("#search-city");
     searchCityFunc(searchCity.value);
+    getForecast(searchCity.value);
 }
 let form = document.querySelector("#form");
 form.addEventListener("submit", changeCity);
@@ -54,28 +62,39 @@ function updateDate(now) {
 }
 
 
-function displayForecast() {
-    let weatherForecast = document.querySelector("#weather-forecast");
+function displayForecast(response) {
+    // get all data from API into an array
+    let dailyData = [];
+    for (let i = 0; i < 7; i++) {
+        dailyData[i] = response.data.daily[i];
+    }
+    
+    let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+
     let forecast = '';
-    days.forEach(function (day) {
+    for (let i = 0; i < 5; i++) {
+        let date = new Date(dailyData[i].time * 1000);
         forecast += 
             `
                 <div class="weather-forecast-day">
-                    <div class="weather-forecast-date">${day}</div>
-                    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" class="forecast-temp-icon" id="forecast-temp-icon" />
+                    <div class="weather-forecast-date">${days[date.getDay()]}</div>
+                    <img src=${dailyData[i].condition.icon_url} class="forecast-temp-icon" id="forecast-temp-icon" />
                     <div class="weather-forecast-temp">
-                        <div class="forecast-temps"><strong>15°</strong></div>
-                        <div class="forecast-temps">10°</div>
+                        <div class="forecast-temps"><strong>${Math.round(dailyData[i].temperature.maximum)}&deg</strong></div>
+                        <div class="forecast-temps">${Math.round(dailyData[i].temperature.minimum)}&deg</div>
                     </div>
                 </div>
     `
-    });
+    }
+
+
+    let weatherForecast = document.querySelector("#weather-forecast");
     weatherForecast.innerHTML = forecast;
 }
 
 
 searchCityFunc("Paris");
-displayForecast();
+getForecast("Paris");
 
