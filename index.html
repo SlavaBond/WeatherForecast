@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather Forecast</title>
 </head>
 <body>
@@ -21,13 +22,15 @@
             <div class="current-city">
                 <h1 id="city">Paris</h1>
                 <p class="current-text">
-                    <span id="current-date"></span>, broken clouds <br />
-                    Humidity: <strong>66%</strong>, Wind: <strong>9.39km/h</strong>
+                    <span id="current-date"></span>, <span id="description"></span><br />
+                    Humidity: <strong id="humidity"></strong>, Wind: <strong id="wind"></strong>
                 </p>
             </div>
             <div class="current-temp">
-                <span class="temp-icon">☀️</span>
-                <span class="temp-value">23</span>
+                <div class="temp-icon" >
+                    <img src="" id="current-icon"/>
+                </div>
+                <span class="temp-value" id="current-temp"></span>
                 <span class="temp-metrics">°C</span>
             </div>
         </main>

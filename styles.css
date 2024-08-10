@@ -72,9 +72,10 @@ main {
     top: -20px;
 }
 .temp-icon {
+    display: inline;
     position: relative;
     font-size: 50px;
-    top: 10px;
+    top: 40px;
 }
 
 footer {
