@@ -47,12 +47,12 @@ let form = document.querySelector("#form");
 form.addEventListener("submit", changeCity);
 
 function updateDate(now) {
-    let weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
    
     let hours = now.getHours();
     let minutes = now.getMinutes();
 
-    let day = weekDays[now.getDay()-1];
+    let day = weekDays[now.getDay()];
     if (now.getHours < 10) {
         hours = `0${now.getHours}`;
     } if (now.getMinutes < 10) {
