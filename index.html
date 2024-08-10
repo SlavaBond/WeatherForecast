@@ -14,27 +14,33 @@
         <header>
             <form id="form">
                 <input class="form-search" id="search-city" type="search" placeholder="Enter a city..." />
-                <input class="form-button" id="search-submit"type="submit" value="Search" />
+                <input class="form-button" id="search-submit" type="submit" value="Search" />
             </form>
         </header>
 
         <main>
-            <div class="current-city">
-                <h1 id="city">Paris</h1>
-                <p class="current-text">
-                    <span id="current-date"></span>, <span id="description"></span><br />
-                    Humidity: <strong id="humidity"></strong>, Wind: <strong id="wind"></strong>
-                </p>
-            </div>
-            <div class="current-temp">
-                <div class="temp-icon" >
-                    <img src="" id="current-icon"/>
+            <div class="current-weather">
+                <div class="current-city">
+                    <h1 id="city">Paris</h1>
+                    <p class="current-text">
+                        <span id="current-date"></span>, <span id="description"></span><br />
+                        Humidity: <strong id="humidity"></strong>, Wind: <strong id="wind"></strong>
+                    </p>
                 </div>
-                <span class="temp-value" id="current-temp"></span>
-                <span class="temp-metrics">°C</span>
+                <div class="current-temp">
+                    <div class="temp-icon">
+                        <img src="" id="current-icon" />
+                    </div>
+                    <span class="temp-value" id="current-temp"></span>
+                    <span class="temp-metrics">°C</span>
+                </div>
             </div>
+
+            <div class="weather-forecast" id="weather-forecast"> </div>
+
         </main>
 
+        
 
         <footer>
             This project was coded by <a href="https://github.com/SlavaBond" target="_blank">Slava Bond</a>

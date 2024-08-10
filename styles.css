@@ -35,10 +35,9 @@ header {
     padding-bottom: 30px;
 }
 
-main {
+.current-weather {
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 1px rgba(65, 50, 100, 0.07);
     padding-bottom: 30px;
 }
 .current-city h1{
@@ -76,6 +75,41 @@ main {
     position: relative;
     font-size: 50px;
     top: 40px;
+
+}
+
+.weather-forecast {
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: solid 1px rgba(65, 50, 100, 0.07);
+    padding-bottom: 30px;
+}
+.weather-forecast-date {
+    text-align: center;
+    line-height: 40px;
+    color: rgba(65, 50, 100, 0.6);
+    font-weight: 100;
+    font-size: 16px;
+}
+
+
+
+.weather-forecast-temp {
+    display: flex;
+    max-width: inherit;
+    justify-content: center;
+    color: #f65282;
+
+
+}
+
+.forecast-temps{
+    padding: 0 10px;
+}
+
+.forecast-temp-icon
+{
+    height: 90px;
 }
 
 footer {

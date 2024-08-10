@@ -38,8 +38,6 @@ function changeCity(event) {
 let form = document.querySelector("#form");
 form.addEventListener("submit", changeCity);
 
-
-
 function updateDate(now) {
     let weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
    
@@ -56,5 +54,28 @@ function updateDate(now) {
 }
 
 
+function displayForecast() {
+    let weatherForecast = document.querySelector("#weather-forecast");
+
+    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+    let forecast = '';
+    days.forEach(function (day) {
+        forecast += 
+            `
+                <div class="weather-forecast-day">
+                    <div class="weather-forecast-date">${day}</div>
+                    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" class="forecast-temp-icon" id="forecast-temp-icon" />
+                    <div class="weather-forecast-temp">
+                        <div class="forecast-temps"><strong>15°</strong></div>
+                        <div class="forecast-temps">10°</div>
+                    </div>
+                </div>
+    `
+    });
+    weatherForecast.innerHTML = forecast;
+}
+
+
 searchCityFunc("Paris");
+displayForecast();
 
