@@ -18,6 +18,9 @@ function updateWeather(response) {
     currentDescription.innerHTML = response.data.condition.description;
     currentHumidity.innerHTML = `${response.data.temperature.humidity}%`;
     currentWind.innerHTML = `${response.data.wind.speed}km/h`;
+
+    getForecast(response.data.city);
+
 }
 
 
@@ -47,7 +50,7 @@ let form = document.querySelector("#form");
 form.addEventListener("submit", changeCity);
 
 function updateDate(now) {
-    let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let weekDays = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
    
     let hours = now.getHours();
     let minutes = now.getMinutes();
@@ -70,8 +73,6 @@ function displayForecast(response) {
     }
     
     let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
-
 
     let forecast = '';
     for (let i = 0; i < 5; i++) {
@@ -96,5 +97,4 @@ function displayForecast(response) {
 
 
 searchCityFunc("Paris");
-getForecast("Paris");
 
